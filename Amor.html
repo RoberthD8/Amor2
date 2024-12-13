@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athenaaaaaa!!!!!</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://wallpapers.com/images/high/blue-hydrangea-flowers-outdoors-l7vl4fm8wkh66z2s.webp') no-repeat center center fixed;
+      background-size: cover;
+    }
+    header {
+      background: rgba(107, 174, 214, 0.8);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+    }
+    .section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .section h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .section p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .feature {
+      background: white;
+      border: 1px solid #bdd7e7;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      width: 350px; /* Aumenta a largura do contêiner da imagem */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .feature img {
+      max-width: 100%; /* Ajusta a largura máxima da imagem */
+      height: auto; /* Mantém a proporção da imagem */
+      border-radius: 5px; /* Bordas arredondadas nas imagens */
+      width: 500px; /* Define uma largura fixa para as imagens */
+      height: 500px; /* Define uma altura fixa para as imagens */
+    }
+    .cta {
+      background-color: #6baed6;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .cta h2 {
+      font-size: 2.5em;
+    }
+    .cta button {
+      background-color: white;
+      color: #6baed6;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+      transition: background 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .cta button:hover {
+      background-color: #d9eaf7;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .countdown {
+      font-size: 2em;
+      color: #005b96;
+      margin-top: 20px;
+    }
+    #letter {
+      font-family: 'Arial', sans-serif;
+      white-space: pre-wrap; /* Mantém os espaços e quebras de linha */
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+      display: none; /* Inicialmente escondido */
+      background-color : #fefefe; /* Cor de fundo da carta */
+      border-radius: 10px; /* Bordas arredondadas */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+      max-width: 600px; /* Largura máxima da carta */
+      margin-left: auto; /* Centraliza a carta */
+      margin-right: auto; /* Centraliza a carta */
+      position: relative; /* Para o efeito de papel */
+      overflow: hidden; /* Para evitar que o conteúdo ultrapasse as bordas */
+      margin-top: 3cm; /* Margem superior de acordo com a ABNT */
+      margin-bottom: 2cm; /* Margem inferior de acordo com a ABNT */
+      line-height: 1.5; /* Espaçamento entre linhas */
+      text-align: justify; /* Justifica o texto */
+    }
+    #letter::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+      z-index: -1; /* Coloca o efeito atrás do texto */
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra interna */
+    }
+    #myButton {
+      background-color: #6baed6;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    #myButton:hover {
+      background-color: #5a9bcf;
+      transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    }
+    /* Estilo da animação de carregamento em forma de coração */
+    .loader {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none; /* Inicialmente escondido */
+    }
+    .heart {
+      width: 100px;
+      height: 100px;
+      background-color: #ff6b81;
+      position: relative;
+      animation: heartbeat 1s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 100px;
+      height: 100px;
+      background-color: #ff6b81;
+      border-radius: 50%;
+      position: absolute;
+    }
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="heart"></div>
+  </div>
+  <header>
+    <h1>Para minha DEUSA </h1>
+    <p>Um pequeno gesto virtual para lhe mostrar o quão disposto estou</p>
+    <p>para viver uma vida ao seu lado, você é o amor da minha vida! ❤️</p>
+  </header>
+
+  <div class="container">
+    <section class="section">
+      <h2>Carta para Você</h2>
+      <button id="myButton">Clique aqui para ver a carta</button>
+      <div id="letter"></div> <!-- Seção da carta -->
+    </section>
+
+    <section class="section">
+      <h2>Por que eu te amo?</h2>
+      <p>São tantas razões que fica difícil listar todas, mas aqui estão algumas que fazem meu coração bater mais forte por você:</p>
+      <div class="features">
+        <div class="feature">
+          <img src="c:\Users\Robs\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\AEBE157DA837D21512B5A1AD0F4E4221\Imagem do WhatsApp de 2024-12-12 à(s) 16.38.00_1d6ae405.jpg" alt="Ícone sorriso">
+          <h3>Seu Sorriso</h3>
+          <p>Ele ilumina até os dias mais nublados.</p>
+        </div>
+        <div class="feature">
+          <img src="c:\Users\Robs\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\1A3F528A7F59019679C74F693310A5E1\Imagem do WhatsApp de 2024-12-12 à(s) 16.38.01_b21ac108.jpg" alt="Ícone coração">
+          <h3>Seu Jeito</h3>
+          <p>É único e faz meu mundo mais especial.</p>
+        </div>
+        <div class="feature">
+          <img src="c:\Users\Robs\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\097D94C608F53CAFC83121891AE9834C\Imagem do WhatsApp de 2024-12-12 à(s) 16.38.03_b5714855.jpg" alt="Ícone presente">
+          <h3>Seus Gestos</h3>
+          <p>Pequenos detalhes que fazem toda diferença.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Nossos Momentos Juntos</h2>
+      <p>Relembre alguns dos momentos incríveis que vivemos:</p>
+      <div class="features">
+        <div class="feature">
+          <img src="c:\Users\Robs\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\C406F51031890DC72C70D4122AD82B11\Imagem do WhatsApp de 2024-12-12 à(s) 16.38.04_8d24ebce.jpg" alt="Memória 1">
+          <p>Nosso Primeiro pão juntos.</p>
+        </div>
+        <div class="feature">
+          <img src="c:\Users\Robs\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\BFAA543C0BD80ED5E567EA123E913430\Imagem do WhatsApp de 2024-12-12 à(s) 16.37.59_5dbf6a0f.jpg" alt="Memória 2">
+          <p>O bolo de Chocolate.</p>
+        </div>
+        <div class="feature">
+          <img src="c:\Users\Robs\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\C19DAD5C1E3C2A9FF0C90213402D46AD\Imagem do WhatsApp de 2024-12-12 à(s) 16.38.03_6c04e723.jpg" alt="Memória 3">
+          <p>Um momento que guardo no coração.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Contagem Regressiva para o Nosso Reencontro</h2>
+      <p>Mal posso esperar para te ver novamente! Estamos tão perto do nosso reencontro:</p>
+      <div class="countdown" id="countdown">Carregando...</div>
+    </section>
+  </div>
+
+  <div class="cta">
+    <h2>Você é tudo para mim!</h2>
+    <p>Espero que essa página mostre um pouquinho do quanto você é importante na minha vida.</p>
+    <button id="responseButton">Responder com Amor 💕</button>
+  </div>
+
+  <footer>
+    <p>Feita com amor por alguém que te ama muito além da eternidade.</p>
+  </footer>
+
+  <script>
+    // Exibir a animação de carregamento ao carregar a página
+    document.getElementById('loader').style.display = 'block';
+
+    window.onload = function() {
+      document.getElementById('loader').style.display = 'none'; // Esconde a animação de carregamento
+    };
+
+    // Função para mostrar a carta
+    document.getElementById('myButton').addEventListener('click', function() {
+      alert('PS: Qualquer coisa você grita, tudo bem?');
+      showLetter();
+    });
+
+    function showLetter() {
+      const letterText = `Minha Deusa,
+
+Erasmo Carlos disse uma vez: "Escrevo-te estas mal traçadas linhas, meu amor, porque veio a saudade visitar meu coração..." Mas, na realidade, essa saudade nunca saiu do meu coração desde o dia em que nos despedimos naquela madrugada na garagem de sua casa. Foi quando vi seus lindos olhos brilhando; não sei se de lágrimas ou de sono, mas, naquele momento, soube o quanto amo você. Esses momentos, por mais simples que pareçam, têm um significado imenso para mim. Sei que nos conhecemos tão pouco, e isso, às vezes, assusta, mas esse pouco já é um universo para mim. É um universo que me faz querer ficar para lhe conhecer por completo, para desvendar todos os seus mistérios, para saber o que te faz sorrir e o que toca seu coração. Você me inspira, me dá força, me faz querer ser uma pessoa melhor todos os dias. Seu jeito, a doçura com que fala, até mesmo seu sorriso meio tímido... Tudo isso é um encanto que me prende de uma forma inexplicável. Tenho tantas coisas para dizer, mas quero que saiba que você é especial para mim, meu docinho de coco. Quando penso no futuro, só consigo imaginar nós dois lado a lado, construindo uma vida cheia de momentos felizes. Imagino-nos viajando para lugares incríveis, rindo juntos das coisas mais bobas e celebrando até as menores conquistas. Sei que a distância entre nós agora é grande, mas cada dia longe de você me faz ter ainda mais certeza de que vale a pena esperar por cada segundo ao seu lado. Logo, logo, essa distância de milhares de quilômetros se tornará apenas alguns poucos metros. Quero que saiba que estou disposto a enfrentar qualquer desafio por você. Prometo ser sempre seu apoio, seu porto seguro, aquele que estará ao seu lado nos momentos bons e ruins. Como diz Vinícius de Moraes, "Que não seja imortal, posto que é chama, mas que seja infinito enquanto dure." Quero que o nosso amor seja infinito enquanto existir, e que cada dia seja mais especial do que o anterior. Não sei o que o futuro nos reserva, mas sei que quero você nele. Não vejo a hora do nosso reencontro para finalmente transformar tudo isso em realidade. AMO VOCÊ!!!
+
+Com amor,
+Roberth`;
+
+      const letterElement = document.getElementById('letter');
+      letterElement.style.display = 'block'; // Mostra a carta
+      typeLetter(letterText, letterElement);
+    }
+
+    function typeLetter(text, element) {
+      let index = 0;
+      element.textContent = ''; // Limpa o conteúdo anterior
+
+      function type() {
+        if (index < text.length) {
+          element.textContent += text.charAt(index);
+          index++;
+          setTimeout(type, 20); // Ajuste a velocidade da digitação aqui
+        }
+      }
+
+      type();
+    }
+
+    // Configurar a data do reencontro
+    const targetDate = new Date('2025-01-01T24:00:00-03:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const difference = targetDate - now;
+
+      if (difference <= 0) {
+        document.getElementById('countdown').textContent = 'Hoje é o dia! ❤️';
+        return;
+      }
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').textContent =
+        `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    // Função para o botão "Responder com Amor 💕"
+    document.getElementById('responseButton').addEventListener('click', function () {
+      alert('Eu te amo muito muitoo mais! ❤️');
+    });
+
+    // Atualiza a contagem regressiva ao carregar a página
+    updateCountdown();
+  </script>
+  
+</body>
+</html>
